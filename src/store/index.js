@@ -105,6 +105,9 @@ export default createStore({
         .find((list) => list.id === idList)
         .items.find((item) => item.id === idItem).amount -= 1;
     },
+    setItems(state, { idList, items }) {
+      state.lists.find((list) => list.id === idList).items = items;
+    },
   },
   actions: {},
   modules: {},

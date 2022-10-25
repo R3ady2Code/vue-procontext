@@ -33,9 +33,9 @@ export default {
 	methods: {
 		onClickToSorted() {
 			if (this.sorted) {
-				this.selectedItems.sort(() => Math.random() - 0.5)
+				this.$store.commit('setItems', { idList: this.list.id, items: this.selectedItems.sort(() => Math.random() - 0.5) })
 			} else {
-				this.selectedItems.sort((a, b) => a.id - b.id)
+				this.$store.commit('setItems', { idList: this.list.id, items: this.selectedItems.sort((a, b) => a.id - b.id) })
 			}
 
 			this.sorted = !this.sorted

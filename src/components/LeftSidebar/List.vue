@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Triangle from './UI/Triangle';
+import Triangle from '../UI/Triangle';
 import Item from './Item'
 
 export default {
@@ -41,14 +41,6 @@ export default {
 		onClickToCheckBox() {
 			this.$store.commit('setCheckedAllItems', { idList: this.idList, value: !this.isAllItemsSelected });
 			this.isOpen = true;
-		}
-	},
-	watch: {
-		isAllItemsSelected: {
-			handler(value) {
-				console.log(value)
-			},
-			deep: true
 		}
 	}
 }
