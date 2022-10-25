@@ -5,7 +5,7 @@
 			<span>{{ item.name }}</span>
 		</div>
 		<div class="item__right">
-			<input v-model="item.amount" type="number" min="0">
+			<input v-model="item.blocks.length" type="number" min="0">
 			<input v-model="item.color" type="color">
 		</div>
 	</li>
