@@ -29,21 +29,19 @@ export default {
 	},
 	data: () => ({
 		sorted: true,
-		selecedBlocks: []
 	}),
 	computed: {
 		selectedItems() {
 			return this.$store.getters.getSelectedItems(this.list.id)
+		},
+		selecedBlocks() {
+			const blocks = []
+			this.selectedItems.map((item) => blocks.push([...item.blocks]))
+			return [].concat(...blocks).sort(() => Math.random() - 0.5)
 		}
 	},
 	methods: {
 		onClickToSorted() {
-			if (this.sorted) {
-				const blocks = []
-				this.selectedItems.map((item) => blocks.push([...item.blocks]))
-				this.selecedBlocks = [].concat(...blocks).sort(() => Math.random() - 0.5)
-			}
-
 			this.sorted = !this.sorted
 		}
 	}
