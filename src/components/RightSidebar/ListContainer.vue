@@ -37,12 +37,15 @@ export default {
 		selecedBlocks() {
 			const blocks = []
 			this.selectedItems.map((item) => blocks.push([...item.blocks]))
-			return [].concat(...blocks).sort(() => Math.random() - 0.5)
+			return this.shuffleBlocks([].concat(...blocks))
 		}
 	},
 	methods: {
 		onClickToSorted() {
 			this.sorted = !this.sorted
+		},
+		shuffleBlocks(array) {
+			return array.sort(() => Math.random() - 0.5)
 		}
 	}
 }

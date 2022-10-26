@@ -199,7 +199,7 @@ export default createStore({
     removeItem(state, { idList, idItem }) {
       state.lists
         .find((list) => list.id === idList)
-        .items.find((item) => item.id === idItem).blocks -= 1;
+        .items.find((item) => item.id === idItem).blocks.length -= 1;
     },
   },
   actions: {},
