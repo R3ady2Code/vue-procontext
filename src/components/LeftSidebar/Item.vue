@@ -20,6 +20,16 @@ export default {
 			return this.$store.getters.getItemById(this.idList, this.idItem)
 		}
 	},
+	watch: {
+		'item.blocks': {
+			async handler() {
+				for (let i = 0; i < this.item.blocks.length; i++) {
+					this.item.blocks[i] = { idItem: this.idItem }
+				}
+			},
+			deep: true
+		},
+	},
 }
 </script>
 

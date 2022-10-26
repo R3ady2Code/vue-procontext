@@ -172,14 +172,6 @@ export default createStore({
     getSelectedItems: (state) => (idList) => {
       return state.lists.find((list) => list.id === idList).items.filter((item) => item.checked);
     },
-    getSelectedBlocks: (state) => (idList) => {
-      const result = [];
-      state.lists
-        .find((list) => list.id === idList)
-        .items.filter((item) => item.checked)
-        .map((item) => result.push([...item.blocks]));
-      return [].concat(...result);
-    },
     isAllItemsSelected: (state) => (idList) =>
       state.lists.find((list) => list.id === idList).items.filter((item) => item.checked).length ===
       state.lists.find((list) => list.id === idList).items.length,
@@ -208,10 +200,6 @@ export default createStore({
       state.lists
         .find((list) => list.id === idList)
         .items.find((item) => item.id === idItem).blocks -= 1;
-    },
-    setItems(state, { idList, items }) {
-      console.log(items);
-      state.lists.find((list) => list.id === idList).items = items;
     },
   },
   actions: {},
